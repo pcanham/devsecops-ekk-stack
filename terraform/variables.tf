@@ -1,17 +1,17 @@
 variable "s3_logging_bucket_name" {
-  type = "string"
+  type = string
 }
 
 variable "kinesis_delivery_stream" {
-  type = "string"
+  type = string
 }
 
 variable "ekk_kinesis_stream_name" {
-  type = "string"
+  type = string
 }
 
 variable "s3_kms_key_arn" {
-  type        = "string"
+  type        = string
   description = "KMS Key ARN used to encrypt data within S3 bucket. The key must already exist within the account."
   default     = ""
 }
@@ -39,7 +39,7 @@ variable "ekk_kinesis_stream_shard_metrics" {
 }
 
 variable "aws_region" {
-  default = "us-east-1"
+  default = "eu-west-1"
 }
 
 variable "es_domain_name" {
@@ -47,11 +47,11 @@ variable "es_domain_name" {
 }
 
 variable "es_version" {
-  default = "5.5"
+  default = "7.1"
 }
 
 variable "es_instance_type" {
-  default = "m4.large.elasticsearch"
+  default = "m5.large.elasticsearch"
 }
 
 variable "es_instance_count" {
@@ -59,11 +59,11 @@ variable "es_instance_count" {
 }
 
 variable "es_dedicated_master_instance_type" {
-  default = "m4.large.elasticsearch"
+  default = "m5.large.elasticsearch"
 }
 
 variable "es_kms_key_id" {
-  type        = "string"
+  type        = string
   description = "KMS Key ID (NOT the ARN!) used to encrypt data within elasticsearch instances. The key must already exist within the account."
   default     = ""
 }
@@ -199,3 +199,4 @@ variable "s3_prefix" {
 variable "s3_cloudwatch_logging_enabled" {
   default = "true"
 }
+

@@ -14,7 +14,6 @@ resource "aws_kinesis_stream" "ekk_kinesis_stream" {
 
 resource "aws_kinesis_firehose_delivery_stream" "ekk_kinesis_delivery_stream" {
   name        = var.kinesis_delivery_stream
-#  destination = "s3"
   destination = "elasticsearch"
   kinesis_source_configuration {
     kinesis_stream_arn = aws_kinesis_stream.ekk_kinesis_stream.arn

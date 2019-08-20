@@ -23,7 +23,7 @@ resource "aws_elasticsearch_domain" "elasticsearch" {
   }
 
   encrypt_at_rest {
-    enabled    = "true"
+    enabled    = var.es_encryption_at_rest == 1 ? "true" : "false"
     kms_key_id = var.es_kms_key_id != "" ? var.es_kms_key_id : aws_kms_key.es_kms_key[0].key_id
   }
 

@@ -50,6 +50,12 @@ variable "es_version" {
   default = "6.8"
 }
 
+variable "es_encryption_at_rest" {
+  type        = bool
+  description = "disable encryption at rest, by default enabled but can be turned off for using smaller Elastic Search clusters for PoC's and testing"
+  default     = true
+}
+
 variable "es_instance_type" {
   default = "m5.large.elasticsearch"
 }

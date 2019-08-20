@@ -5,7 +5,7 @@ resource "aws_kms_key" "s3_logging_kms_key" {
 }
 
 resource "aws_kms_key" "es_kms_key" {
-  count = var.es_kms_key_id == "" ? 1 : 0
+  count = var.es_kms_key_id == "" || es_encryption_at_rest == 1  ? 1 : 0
 
   description = "ES data KMS Key - Created by Terraform"
 }

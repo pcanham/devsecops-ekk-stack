@@ -1,18 +1,18 @@
 variable "s3_logging_bucket_name" {
-    type = "string"
+  type = "string"
 }
 variable "ec_test_instance_key_name" {
-    type = "string"
+  type = "string"
 }
 variable "kinesis_delivery_stream" {
-    default = "DevSecOpsKinesisDeliveryStream"
+  default = "DevSecOpsKinesisDeliveryStream"
 }
 variable "ekk_kinesis_stream_name" {
-    default = "DevSecOpsKinesisStream"
+  default = "DevSecOpsKinesisStream"
 }
 variable "es_instance_type" {
-    default = "t2.small.elasticsearch"
+  default = "t2.small.elasticsearch"
 }
 variable "es_dedicated_master_instance_type" {
-    default = "t2.small.elasticsearch"
+  default = "t2.small.elasticsearch"
 }

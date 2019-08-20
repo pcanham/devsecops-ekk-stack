@@ -47,7 +47,7 @@ variable "es_domain_name" {
 }
 
 variable "es_version" {
-  default = "7.1"
+  default = "6.8"
 }
 
 variable "es_instance_type" {

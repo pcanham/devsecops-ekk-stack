@@ -13,11 +13,9 @@ resource "aws_cloudwatch_log_group" "s3_log_group" {
 resource "aws_cloudwatch_log_stream" "es_log_stream" {
   name           = var.es_log_stream_name
   log_group_name = aws_cloudwatch_log_group.es_log_group.name
-  tags           = var.tags
 }
 
 resource "aws_cloudwatch_log_stream" "s3_log_stream" {
   name           = var.s3_log_stream_name
   log_group_name = aws_cloudwatch_log_group.s3_log_group.name
-  tags           = var.tags
 }

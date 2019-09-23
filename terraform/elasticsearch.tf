@@ -45,4 +45,6 @@ resource "aws_elasticsearch_domain" "elasticsearch" {
 }
 CONFIG
 
+  tags = var.tags
+
 }

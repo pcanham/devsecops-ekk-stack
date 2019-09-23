@@ -206,3 +206,8 @@ variable "s3_cloudwatch_logging_enabled" {
   default = "true"
 }
 
+variable "tags" {
+  description = "A map of tags to add to all resources."
+  type        = map(string)
+  default     = {}
+}

@@ -18,6 +18,7 @@ data "template_file" "elasticsearch_policy" {
 resource "aws_iam_role" "s3_delivery_role" {
   name               = var.s3_delivery_role_name
   assume_role_policy = data.template_file.firehose_assume_role_policy.rendered
+  tags               = var.tags
 }
 
 data "aws_iam_policy_document" "s3_log_bucket_access" {
@@ -40,6 +41,7 @@ resource "aws_iam_policy" "s3_log_bucket_iam_policy" {
 resource "aws_iam_role" "ekk_role" {
   name               = var.ekk_role_name
   assume_role_policy = data.template_file.ec2_assume_role_policy.rendered
+  tags               = var.tags
 }
 
 resource "aws_iam_instance_profile" "ekk_instance_profile" {
@@ -113,10 +115,10 @@ resource "aws_iam_role_policy_attachment" "es_cloudwatch_full_access" {
 resource "aws_iam_role" "elasticsearch_delivery_role" {
   name               = var.es_delivery_role_name
   assume_role_policy = data.template_file.firehose_assume_role_policy.rendered
+  tags               = var.tags
 }
 
 resource "aws_iam_role_policy_attachment" "es_delivery_full_access" {
   role       = aws_iam_role.elasticsearch_delivery_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonESFullAccess"
 }
-

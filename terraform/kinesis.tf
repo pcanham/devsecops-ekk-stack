@@ -10,6 +10,8 @@ resource "aws_kinesis_stream" "ekk_kinesis_stream" {
   # Strangely, this uses the KMS GUID instead of the ARN
   # kms_key_id = "${var.ekk_kinesis_stream_kms_key_id}"
   kms_key_id = var.ekk_kinesis_stream_kms_key_id != "" ? var.ekk_kinesis_stream_kms_key_id : aws_kms_key.kinesis_stream_kms_key[0].key_id
+
+  tags = var.tags
 }
 
 resource "aws_kinesis_firehose_delivery_stream" "ekk_kinesis_delivery_stream" {
@@ -51,5 +53,7 @@ resource "aws_kinesis_firehose_delivery_stream" "ekk_kinesis_delivery_stream" {
       log_stream_name = aws_cloudwatch_log_stream.s3_log_stream.name
     }
   }
-}
 
+  tags = var.tags
+
+}

@@ -1,6 +1,7 @@
 resource "aws_kms_key" "s3_logging_kms_key" {
   count       = var.s3_kms_key_arn == "" ? 1 : 0
   description = "EKK - S3 Logging KMS Key"
+  tags        = var.tags
 }
 
 resource "aws_kms_alias" "s3_logging_kms_alias" {
@@ -12,6 +13,7 @@ resource "aws_kms_alias" "s3_logging_kms_alias" {
 resource "aws_kms_key" "es_kms_key" {
   count       = var.es_kms_key_id == "" || var.es_encryption_at_rest == 1 ? 1 : 0
   description = "EKK - ES data KMS Key"
+  tags        = var.tags
 }
 
 resource "aws_kms_alias" "es_kms_alias" {
@@ -23,6 +25,7 @@ resource "aws_kms_alias" "es_kms_alias" {
 resource "aws_kms_key" "kinesis_stream_kms_key" {
   count       = var.ekk_kinesis_stream_kms_key_id == "" ? 1 : 0
   description = "EKK - Kinesis Stream KMS Key"
+  tags        = var.tags
 }
 
 resource "aws_kms_alias" "kinesis_stream_kms_alias" {

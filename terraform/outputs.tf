@@ -9,4 +9,3 @@ output "es_domain_endpoint" {
 output "ekk_instance_profile_id" {
   value = aws_iam_instance_profile.ekk_instance_profile.id
 }
-
